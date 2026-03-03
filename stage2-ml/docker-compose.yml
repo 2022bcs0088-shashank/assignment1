@@ -1,8 +1,8 @@
 version: "3.8"
 services:
   churn-api:
-    image: 2022bcs0088shashank/assignment-1:logicbased-latest
-    container_name: telecom-churn-service
+    image: 2022bcs0088shashank/assignment-1:mlbased-latest
+    container_name: telecom-churn-service-ml
     ports:
       - "8000:8000"
     volumes:

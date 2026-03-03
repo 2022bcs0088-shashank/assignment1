@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  # Stage 1: Pure DevOps / Rule-Based Service
+  churn-logic-api:
+    image: 2022bcs0088shashank/assignment-1:logicbased-latest
+    container_name: telecom-churn-logic-service
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./logs/logic:/app/logs
+    environment:
+      - ENV=production
+      - SERVICE_TYPE=LOGIC
+    restart: always
+
+  # Stage 2: Machine Learning Service
+  churn-ml-api:
+    image: 2022bcs0088shashank/assignment-1:mlbased-latest
+    container_name: telecom-churn-ml-service
+    ports:
+      - "8001:8000"
+    volumes:
+      - ./logs/ml:/app/logs
+    environment:
+      - ENV=production
+      - SERVICE_TYPE=ML
+    restart: always
