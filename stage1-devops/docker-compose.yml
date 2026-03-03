@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  churn-api:
+    image: 2022bcs0088shashank/telecom-churn-devops:latest
+    container_name: telecom-churn-service
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./logs:/app/logs
+    environment:
+      - ENV=production
+    restart: always
